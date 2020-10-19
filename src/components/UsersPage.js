@@ -29,11 +29,7 @@ class UsersPage extends Component {
     const userRes = await httpRes.json();
     const name = userRes.results[0].name;
     const userName = `${name.first} ${name.last}`;
-    if (this.state.users.indexOf(userName) >= 0) {
-      setTimeout(() => this.loadUser(), 300);
-    } else {
-      this.setState({ isLoading: false, user: userName });
-    }
+    this.setState({ isLoading: false, user: userName });
   }
 
   userRemovedHandler(userName) {
@@ -64,7 +60,7 @@ class UsersPage extends Component {
           }
         </div>
         <div>
-          {this.state.isLoading && <img src={logo} alt="loading...." className="App-logo"/>}
+          {this.state.isLoading && <img src={logo} alt="loading...." className="App-logo" />}
         </div>
       </div>
     );
