@@ -33,7 +33,7 @@ class UsersPage extends Component {
   }
 
   userRemovedHandler(userName) {
-    const list = this.state.users.filter((u) => u !== userName);
+    const list = this.state.users.filter((name) => name !== userName);
     this.setState({ users: list });
   }
 
@@ -51,10 +51,10 @@ class UsersPage extends Component {
           {this.state.users.length > 0 &&
             <div>
               <h1>Users:</h1>
-              {this.state.users.map((user, index) =>
+              {this.state.users.map((userName, index) =>
                 <SingleUser key={index}
-                  user={user}
-                  onUserRemoved={(user) => this.userRemovedHandler(user)} />)}
+                  user={userName}
+                  onUserRemoved={(name) => this.userRemovedHandler(name)} />)}
               <hr />
             </div>
           }
